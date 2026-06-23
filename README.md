@@ -21,6 +21,12 @@ npx @cheney12138/tech-book-extractor-skills
 
 安装完成后重启 Claude Code，即可使用 `/tech-book-stage1` 和 `/tech-book-stage2`。
 
+**更新到最新版本：**
+
+```bash
+npx @cheney12138/tech-book-extractor-skills@latest
+```
+
 ## 设计思路
 
 - **Stage 1 画地图**——读整本书之前，先标注知识价值分布，聚焦高权重章节
