@@ -6,9 +6,13 @@ const os = require("os");
 
 const skillsSource = path.join(__dirname, "..", "skills");
 const skillsDest = path.join(os.homedir(), ".claude", "skills");
+const scriptsSrc = path.join(__dirname, "..", "stage1", "complexity_scanner.py");
+const scriptsDest = path.join(os.homedir(), ".claude", "scripts");
 
 fs.mkdirSync(skillsDest, { recursive: true });
+fs.mkdirSync(scriptsDest, { recursive: true });
 
+// 复制 skills
 const skills = fs.readdirSync(skillsSource).filter((f) =>
   fs.statSync(path.join(skillsSource, f)).isDirectory()
 );
@@ -27,7 +31,12 @@ for (const skill of skills) {
     fs.copyFileSync(path.join(src, file), path.join(dest, file));
   }
 
-  console.log(`✓ ${skill} → ${dest}`);
+  console.log(`✓ skill: ${skill} → ${dest}`);
 }
 
-console.log(`\n${skills.length} skill(s) installed. Restart Claude Code to activate.`);
+// 复制预处理脚本
+const scannerDest = path.join(scriptsDest, "complexity_scanner.py");
+fs.copyFileSync(scriptsSrc, scannerDest);
+console.log(`✓ script: complexity_scanner.py → ${scannerDest}`);
+
+console.log(`\n${skills.length} skill(s) installed.`);

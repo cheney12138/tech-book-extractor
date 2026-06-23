@@ -7,7 +7,8 @@
   },
   "files": [
     "skills/",
-    "bin/"
+    "bin/",
+    "stage1/complexity_scanner.py"
   ],
   "scripts": {
     "install-skills": "node bin/install.js",

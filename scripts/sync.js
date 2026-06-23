@@ -20,6 +20,10 @@ const SKILLS = [
       "---",
       "",
     ].join("\n"),
+    // npm 安装用户没有 stage1/ 目录，脚本装在 ~/.claude/scripts/
+    replace: [
+      ["python stage1/complexity_scanner.py", "python ~/.claude/scripts/complexity_scanner.py"],
+    ],
   },
   {
     src: "stage2/skill-stage2-chapter-extractor.md",
@@ -34,7 +38,7 @@ const SKILLS = [
   },
 ];
 
-for (const { src, dest, frontmatter } of SKILLS) {
+for (const { src, dest, frontmatter, replace } of SKILLS) {
   const srcPath = path.join(root, src);
   const destPath = path.join(root, dest);
 
@@ -44,7 +48,11 @@ for (const { src, dest, frontmatter } of SKILLS) {
   }
 
   fs.mkdirSync(path.dirname(destPath), { recursive: true });
-  fs.writeFileSync(destPath, frontmatter + fs.readFileSync(srcPath, "utf8"));
+  let content = fs.readFileSync(srcPath, "utf8");
+  for (const [from, to] of replace ?? []) {
+    content = content.replaceAll(from, to);
+  }
+  fs.writeFileSync(destPath, frontmatter + content);
   console.log(`✓ ${src} → ${dest}`);
 }
 

@@ -2,7 +2,6 @@
 name: tech-book-stage1
 description: "技术书精读前的知识骨架生成器。当用户想在读书前先画地图、分析章节价值分布、标注权重和阅读路线时激活。触发词：/tech-book-stage1、精读准备、生成骨架、分析这本书的结构。先运行 complexity_scanner.py，再生成 stage1-skeleton.json。"
 ---
-
 # 阶段一 Skill：技术书结构解析器
 
 **定位**：读整本书之前，先画地图。避免逐章硬啃，把有限精力聚焦在高价值章节。
@@ -14,7 +13,7 @@ description: "技术书精读前的知识骨架生成器。当用户想在读书
 ## Step 0：运行预处理脚本（必须先做）
 
 ```bash
-python stage1/complexity_scanner.py <书的路径> [输出路径]
+python ~/.claude/scripts/complexity_scanner.py <书的路径> [输出路径]
 ```
 
 脚本扫描全书文本，计算每个小节的三项客观指标，输出 `complexity-meta.json`。
