@@ -12,7 +12,7 @@ Claude Code 技能：技术书深度萃取——两阶段流水线。
 ## 安装（Agent Skill）
 
 ```bash
-npx @cheney12138/tech-book-extractor-skills
+npx @cheney99/tech-book-extractor-skills
 ```
 
 安装完成后即可使用 `/tech-book-stage1` 和 `/tech-book-stage2`。
@@ -20,7 +20,7 @@ npx @cheney12138/tech-book-extractor-skills
 **更新到最新版本：**
 
 ```bash
-npx @cheney12138/tech-book-extractor-skills@latest
+npx @cheney99/tech-book-extractor-skills@latest
 ```
 
 ## 设计思路
