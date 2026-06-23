@@ -1,0 +1,23 @@
+{
+  "name": "@cheney12138/tech-book-extractor-skills",
+  "version": "1.0.0",
+  "description": "Claude Code skills for deep technical book reading — structure parsing (Stage 1) and chapter extraction (Stage 2).",
+  "bin": {
+    "tech-book-skills": "./bin/install.js"
+  },
+  "files": [
+    "skills/",
+    "bin/"
+  ],
+  "scripts": {
+    "install-skills": "node bin/install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cheney12138/tech-book-extractor.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
