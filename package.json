@@ -1,5 +1,5 @@
 {
-  "name": "@cheney99/tech-book-extractor-skills",
+  "name": "tech-book-extractor-skills",
   "version": "1.0.6",
   "description": "Claude Code skills for deep technical book reading — structure parsing (Stage 1) and chapter extraction (Stage 2).",
   "bin": {
