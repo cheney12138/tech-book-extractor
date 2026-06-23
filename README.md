@@ -12,10 +12,6 @@ Claude Code 技能：技术书深度萃取——两阶段流水线。
 ## 安装（Agent Skill）
 
 ```bash
-# 1. 配置 registry（一次性）
-echo "@cheney12138:registry=https://npm.pkg.github.com" >> ~/.npmrc
-
-# 2. 安装并复制 skill 到 ~/.claude/skills/
 npx @cheney12138/tech-book-extractor-skills
 ```
 
