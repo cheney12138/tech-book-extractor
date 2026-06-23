@@ -10,7 +10,10 @@
     "bin/"
   ],
   "scripts": {
-    "install-skills": "node bin/install.js"
+    "install-skills": "node bin/install.js",
+    "sync": "node scripts/sync.js",
+    "release:patch": "npm run sync && npm version patch && npm publish",
+    "release:minor": "npm run sync && npm version minor && npm publish"
   },
   "repository": {
     "type": "git",
