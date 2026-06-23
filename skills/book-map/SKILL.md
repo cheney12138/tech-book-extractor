@@ -1,6 +1,6 @@
 ---
-name: tech-book-stage1
-description: "技术书精读前的知识骨架生成器。当用户想在读书前先画地图、分析章节价值分布、标注权重和阅读路线时激活。触发词：/tech-book-stage1、精读准备、生成骨架、分析这本书的结构。先运行 complexity_scanner.py，再生成 stage1-skeleton.json。"
+name: book-map
+description: "技术书结构解析——生成知识骨架地图。触发词：/book-map、画地图、分析结构。"
 ---
 # 阶段一 Skill：技术书结构解析器
 

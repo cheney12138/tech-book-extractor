@@ -1,6 +1,6 @@
 ---
-name: tech-book-stage2
-description: "技术书章节深度萃取器。当用户想精读某章节、把内容读薄提炼为可用知识时激活。需要 Stage 1 骨架作为输入。触发词：/tech-book-stage2、萃取这章、精读这章、深度提炼。输出六层结构的 Markdown 笔记。"
+name: chapter-drill
+description: "技术书章节深度萃取——把一章钻透。自动生成骨架（如需要）。触发词：/chapter-drill、钻读、萃取。"
 ---
 # 阶段二 Skill：技术书章节深度萃取器
 
