@@ -16,43 +16,43 @@ npx tech-book-extractor-skills@latest
 
 ## 使用
 
-### `/book-map` — 画地图
-
-先读骨架，再决定从哪里开始钻。
-
-```
-/book-map 书文件路径.epub
-```
-
-产出 `stage1-skeleton.json`，包含每章的权重、复杂度热点、阅读路线。不是给你读的——是给 `/chapter-drill` 用来自动判断萃取深度的。
-
-### `/chapter-drill` — 钻章节
-
-一本书一钻，直接给章节号。
+### 日常工作流：只用 `/chapter-drill`
 
 ```
 /chapter-drill 书文件路径.epub 第三章
 ```
 
-第一次会自动生成骨架（透明，不打扰），后续钻其他章节直接复用。
+一步完成。首次使用时会自动在后台生成知识骨架（透明），后续章节直接复用。不需要手动跑 `/book-map`。
+
+### 可选：`/book-map` — 单独校对骨架
+
+如果想要调整某章的权重、过时标注或阅读路线后再萃取：
+
+```
+/book-map 书文件路径.epub
+```
+
+骨架生成后可手动编辑 `stage1-skeleton.json`，然后 `/chapter-drill` 会读取你的改动。
 
 ### 示例
 
 ```bash
-# 画地图
-/book-map ~/books/jvm.epub
+# 直接钻，骨架第一次自动建
+/chapter-drill ~/books/jvm.epub 第二章
 
-# 钻读
+# 钻完继续钻，骨架复用
 /chapter-drill ~/books/jvm.epub 第三章
-/chapter-drill ~/books/jvm.epub 第八章
+
+# 偶尔跑一下，校对骨架内容
+/book-map ~/books/jvm.epub
 ```
 
-## 结构
+## 命令
 
-| 命令 | 阶段 | 职责 |
-|------|------|------|
-| `/book-map` | Stage 1 | 全书骨架：type、weight、complexity、keyQuestions、阅读路线 |
-| `/chapter-drill` | Stage 2 | 单章萃取：六层结构。complexity=high 的小节自动深度脚手架 |
+| 命令 | 日常使用频率 | 职责 |
+|------|------------|------|
+| `/chapter-drill` | ⭐⭐⭐ 每次都跑 | 单章萃取 + 自动建骨架。complexity=high 的小节深度脚手架 |
+| `/book-map` | ⭐ 校对时跑 | 显式重建全书骨架，方便手动调整元数据后提升萃取质量 |
 
 ## 设计思路
 
