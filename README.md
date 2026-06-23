@@ -9,7 +9,7 @@ Claude Code 技能：技术书深度萃取——两阶段流水线。
 | Stage 1 | [stage1/skill-stage1-structure-parser.md](stage1/skill-stage1-structure-parser.md) | 全书骨架解析：标注 type/weight/complexity/keyQuestions/outdatedRisks/阅读路线 |
 | Stage 2 | [stage2/skill-stage2-chapter-extractor.md](stage2/skill-stage2-chapter-extractor.md) | 单章深度萃取：六层结构 + 复杂热点深度脚手架 |
 
-## 安装（Claude Code Skill）
+## 安装（Agent Skill）
 
 ```bash
 # 1. 配置 registry（一次性）
@@ -19,7 +19,7 @@ echo "@cheney12138:registry=https://npm.pkg.github.com" >> ~/.npmrc
 npx @cheney12138/tech-book-extractor-skills
 ```
 
-安装完成后重启 Claude Code，即可使用 `/tech-book-stage1` 和 `/tech-book-stage2`。
+安装完成后即可使用 `/tech-book-stage1` 和 `/tech-book-stage2`。
 
 **更新到最新版本：**
 
