@@ -1,6 +1,6 @@
 {
   "name": "tech-book-extractor-skills",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Claude Code skills for deep technical book reading — structure parsing (Stage 1) and chapter extraction (Stage 2).",
   "bin": {
     "tech-book-extractor-skills": "bin/install.js"
