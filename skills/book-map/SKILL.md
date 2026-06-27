@@ -10,6 +10,21 @@ description: "技术书结构解析——生成知识骨架地图。触发词：
 
 ---
 
+## Step -1：从 PDF 提取文本（如有 PDF）
+
+如果手头是 PDF 而非纯文本，先用提取脚本拿到全书原文：
+
+```bash
+# 全书提取 → 输出 {书名}-fulltext.md
+python ~/.claude/scripts/extract_book.py ./你的书.pdf --output ./
+
+# 测试：只看前 20 页
+python ~/.claude/scripts/extract_book.py ./你的书.pdf --max-pages 20
+```
+
+> 原理：PyMuPDF 直接读取 PDF 文字层（和 Ctrl+C 一样），不需要 GPU/OCR。
+> 扫描件 PDF 无文字层，脚本会检测并提示。
+
 ## Step 0：运行预处理脚本（必须先做）
 
 ```bash

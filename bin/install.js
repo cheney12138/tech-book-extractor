@@ -39,4 +39,12 @@ const scannerDest = path.join(scriptsDest, "complexity_scanner.py");
 fs.copyFileSync(scriptsSrc, scannerDest);
 console.log(`✓ script: complexity_scanner.py → ${scannerDest}`);
 
+// 复制 PDF 文本提取脚本
+const scriptsDir = path.join(__dirname, "..", "scripts");
+for (const pyScript of ["pdf_extract_utils.py", "extract_book.py", "extract_chapter.py"]) {
+  const dest = path.join(scriptsDest, pyScript);
+  fs.copyFileSync(path.join(scriptsDir, pyScript), dest);
+  console.log(`✓ script: ${pyScript} → ${dest}`);
+}
+
 console.log(`\n${skills.length} skill(s) installed.`);

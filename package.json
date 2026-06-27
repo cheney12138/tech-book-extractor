@@ -8,7 +8,10 @@
   "files": [
     "skills/",
     "bin/",
-    "stage1/complexity_scanner.py"
+    "stage1/complexity_scanner.py",
+    "scripts/pdf_extract_utils.py",
+    "scripts/extract_book.py",
+    "scripts/extract_chapter.py"
   ],
   "scripts": {
     "install-skills": "node bin/install.js",

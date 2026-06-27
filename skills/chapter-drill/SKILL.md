@@ -8,11 +8,24 @@ description: "技术书章节深度萃取——把一章钻透。自动生成骨
 
 ---
 
+## 前置步骤：从 PDF 提取单章文本
+
+如果章节原文在 PDF 里，先用提取脚本拿到文字：
+
+```bash
+# 提取第 45-78 页（如第 3 章）
+python ~/.claude/scripts/extract_chapter.py ./你的书.pdf --pages 45-78 --chapter "ch03" --output ./
+```
+
+输出 `{书名}/chapters/ch03-raw.md`，可直接作为下方「章节全文」输入。
+
+---
+
 ## 输入
 
 | 字段 | 来源 | 说明 |
 |------|------|------|
-| 章节全文 | 用户提供 | 单章完整原文 |
+| 章节全文 | 用户提供（或 `extract_chapter.py` 产出） | 单章完整原文 |
 | 章节骨架 | Stage 1 产出 | 本章的 type、weight、keyQuestions、outdatedRisks、prerequisites、subsections.skipIf、subsections.complexity |
 | complexityHotspots | Stage 1 产出 | 全书中 complexity=high 的小节列表，Stage 2 对此类小节启用深度脚手架而非精炼提纯 |
 | 前置章节萃取 | Stage 2 先前产出（可选） | 已处理章节的"关键问答"，用于检测术语引用一致性 |
