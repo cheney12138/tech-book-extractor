@@ -6,7 +6,6 @@ const os = require("os");
 
 const skillsSource = path.join(__dirname, "..", "skills");
 const skillsDest = path.join(os.homedir(), ".claude", "skills");
-const scriptsSrc = path.join(__dirname, "..", "stage1", "complexity_scanner.py");
 const scriptsDest = path.join(os.homedir(), ".claude", "scripts");
 
 fs.mkdirSync(skillsDest, { recursive: true });
@@ -34,14 +33,9 @@ for (const skill of skills) {
   console.log(`✓ skill: ${skill} → ${dest}`);
 }
 
-// 复制预处理脚本
-const scannerDest = path.join(scriptsDest, "complexity_scanner.py");
-fs.copyFileSync(scriptsSrc, scannerDest);
-console.log(`✓ script: complexity_scanner.py → ${scannerDest}`);
-
-// 复制 PDF 文本提取脚本
+// 复制 Python 脚本
 const scriptsDir = path.join(__dirname, "..", "scripts");
-for (const pyScript of ["pdf_extract_utils.py", "extract_book.py", "extract_chapter.py"]) {
+for (const pyScript of ["complexity_scanner.py", "pdf_extract_utils.py", "extract_book.py", "extract_chapter.py"]) {
   const dest = path.join(scriptsDest, pyScript);
   fs.copyFileSync(path.join(scriptsDir, pyScript), dest);
   console.log(`✓ script: ${pyScript} → ${dest}`);

@@ -8,16 +8,13 @@
   "files": [
     "skills/",
     "bin/",
-    "stage1/complexity_scanner.py",
+    "scripts/complexity_scanner.py",
     "scripts/pdf_extract_utils.py",
     "scripts/extract_book.py",
     "scripts/extract_chapter.py"
   ],
   "scripts": {
-    "install-skills": "node bin/install.js",
-    "sync": "node scripts/sync.js",
-    "release:patch": "npm run sync && npm version patch && npm publish",
-    "release:minor": "npm run sync && npm version minor && npm publish"
+    "install-skills": "node bin/install.js"
   },
   "repository": {
     "type": "git",
