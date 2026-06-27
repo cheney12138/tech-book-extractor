@@ -16,7 +16,7 @@ extract_book.py — 整本书文本提取脚本
 
 输出：
   {output_dir}/{书名}/{书名}-fulltext.md
-  {output_dir}/{书名}/images/          # 仅 --export-images 时
+  中间结果（图片等）：/tmp/tech-book-extractor/{书名}/
 """
 
 from __future__ import annotations
@@ -32,6 +32,7 @@ from pdf_extract_utils import (
     extract_pages,
     save_results,
     extract_book_name,
+    get_tmp_dir,
 )
 
 
@@ -67,7 +68,9 @@ def main():
     book_name = extract_book_name(pdf_path.name)
     output_dir = Path(args.output) / book_name
     output_path = output_dir / f"{book_name}-fulltext.md"
-    image_dir = str(output_dir / "images") if args.export_images else ""
+    # 中间结果（图片等）固定放 /tmp，不污染用户输出目录
+    tmp_dir = get_tmp_dir(book_name)
+    image_dir = str(tmp_dir / "images") if args.export_images else ""
 
     # 页码范围
     total_pages = pdf_page_count(pdf_path)

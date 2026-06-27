@@ -518,6 +518,13 @@ def save_results(
 # 辅助函数
 # ═══════════════════════════════════════════════════════════════════
 
+def get_tmp_dir(book_name: str) -> Path:
+    """中间结果目录：/tmp/tech-book-extractor/<书名>/"""
+    path = Path("/tmp/tech-book-extractor") / book_name
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
 def extract_book_name(pdf_path: str | Path) -> str:
     """从 PDF 文件名提取书名（去后缀、去特殊字符）"""
     name = Path(pdf_path).stem

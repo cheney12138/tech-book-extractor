@@ -17,6 +17,7 @@ extract_chapter.py — 单章文本提取脚本
 
 输出：
   {output_dir}/{书名}/chapters/{chapter_id}-raw.md
+  中间结果（图片等）：/tmp/tech-book-extractor/{书名}/
 """
 
 from __future__ import annotations
@@ -32,6 +33,7 @@ from pdf_extract_utils import (
     extract_pages,
     save_results,
     extract_book_name,
+    get_tmp_dir,
     parse_page_range,
 )
 
@@ -80,7 +82,9 @@ def main():
     book_name = extract_book_name(pdf_path.name)
     output_dir = Path(args.output) / book_name / "chapters"
     output_path = output_dir / f"{chapter_id}-raw.md"
-    image_dir = str(Path(args.output) / book_name / "images") if args.export_images else ""
+    # 中间结果（图片等）固定放 /tmp，不污染用户输出目录
+    tmp_dir = get_tmp_dir(book_name)
+    image_dir = str(tmp_dir / "images") if args.export_images else ""
 
     page_count = page_end - page_start + 1
     print(f"📖 {book_name}")
