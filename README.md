@@ -2,6 +2,8 @@
 
 Claude Code 技能：技术书深度萃取——两阶段流水线。
 
+[![npm version](https://img.shields.io/npm/v/tech-book-extractor-skills)](https://www.npmjs.com/package/tech-book-extractor-skills)
+
 ## 安装
 
 ```bash
